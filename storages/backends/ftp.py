@@ -155,6 +155,7 @@ class FTPStorage(Storage):
     def _save(self, name, content):
         content.open()
         self._start_connection()
+        name=name.replace('\\','/')
         self._put_file(name, content)
         content.close()
         return name
